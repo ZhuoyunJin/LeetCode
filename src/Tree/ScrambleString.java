@@ -1,42 +1,28 @@
 package Tree;
 
 public class ScrambleString {
-	class StringTreeNode{
-		String val;
-		StringTreeNode left;
-		StringTreeNode right;
 
-		public StringTreeNode(String s){
-			this.val = s;
-			this.left = null;
-			this.right= null;
-		}
-	}
 	public boolean isScramble(String s1, String s2) {
 		if(s1==null||s2==null) return false;
-		if(s1.length()!=s2.length()) return false;
-		StringTreeNode n1 = buildTree(s1);
-		StringTreeNode n2 = buildTree(s2);
-		return helper(n1,n2);
+		int len = s1.length();
+		if(len==1) return s1.equals(s2);
+		boolean isScrambled = false;
+		for(int i=1;i<=len;i++){
+			String sub11 = s1.substring(0,i);
+			String sub12 = s1.substring(i,len);
+			String sub21 = s2.substring(0,len-i);
+			String sub22 = s2.substring(len-i,len);	
+			if(isScramble(sub11, sub22) && isScramble(sub12, sub21)){
+				isScrambled = true;
+				break;
+			}
+		}
+		return isScrambled;
 	}
-
-	public Boolean helper(StringTreeNode n1, StringTreeNode n2){
-		if(n1.left == null || n1.right==null) return false;
-		if(n1.left.val.equals(n2.right.val) && n1.right.val.equals(n2.left.val))
-			return true;
-		return helper(n1.left, n2.left) || helper(n1.right, n2.right);
-	}
-	public StringTreeNode buildTree(String s){
-
-		StringTreeNode node = new StringTreeNode(s);
-		if(s.length()<=1) return node;
-		node.left=buildTree(s.substring(0, s.length()/2));
-		node.right=buildTree(s.substring(s.length()/2, s.length()));
-		return node;
-	}
+	
 	public static void main(String[] args) {
 		ScrambleString t = new ScrambleString();
-		System.out.println(t.isScramble("great", "eeeee"));;
+		System.out.println(t.isScramble("abb", "bab"));;
 	}
 
 }
