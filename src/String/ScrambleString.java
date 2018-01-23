@@ -1,4 +1,4 @@
-package Tree;
+package String;
 
 public class ScrambleString {
 

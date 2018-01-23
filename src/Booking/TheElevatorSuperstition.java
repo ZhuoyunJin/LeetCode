@@ -1,4 +1,4 @@
-package temp;
+package Booking;
 public class TheElevatorSuperstition {
 	static int getLuckyFloorNumber(int n) {
         for(int i=1;i<=n;i++){

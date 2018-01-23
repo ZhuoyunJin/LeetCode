@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ImplementStackUsingQueues {
-	Queue<Integer> queue = new LinkedList<>();
-	Queue<Integer> temp = new LinkedList<>();
+	Queue<Integer> queue = new LinkedList<Integer>();
+	Queue<Integer> temp = new LinkedList<Integer>();
 	// Push element x onto stack.
     public void push(int x) {
         while(!queue.isEmpty()){

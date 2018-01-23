@@ -1,4 +1,4 @@
-package temp;
+package Booking;
 
 public class NthFibonacciNumber {
 	public static int recursion(int n) {

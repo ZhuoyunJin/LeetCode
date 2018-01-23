@@ -1,4 +1,4 @@
-package Booking;
+package Graph;
 
 import java.util.*;
 
