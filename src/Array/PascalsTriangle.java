@@ -23,7 +23,6 @@ public class PascalsTriangle {
 			for(int k:tempArray){
 				tempList.add(k);
 			}
-			resultList.add(tempList);
 			prevArray = tempArray;
 		}
 		return resultList;
