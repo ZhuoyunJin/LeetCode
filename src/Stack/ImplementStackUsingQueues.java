@@ -4,24 +4,22 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ImplementStackUsingQueues {
-	Queue<Integer> queue = new LinkedList<Integer>();
-	Queue<Integer> temp = new LinkedList<Integer>();
-	// Push element x onto stack.
+	Queue<Integer> queue;
+    public ImplementStackUsingQueues() {
+        this.queue = new LinkedList<Integer>();
+    }
+    
     public void push(int x) {
-        while(!queue.isEmpty()){
-        	temp.add(queue.peek());
-        	queue.poll();
-        }
-        queue.add(x);
-        while(!temp.isEmpty()){
-        	queue.add(temp.peek());
-        	temp.poll();
-        }
+       queue.add(x);
+       int size = queue.size();
+       for(int i=0;i<size-1;i++){
+    	   queue.add(queue.poll());
+       }
     }
 
     // Removes the element on top of the stack.
-    public void pop() {
-        queue.poll();
+    public int pop() {
+        return queue.poll();
     }
 
     // Get the top element.
