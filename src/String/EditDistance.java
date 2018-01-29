@@ -1,3 +1,4 @@
+package String;
 
 public class EditDistance {
 	public int minDistance(String word1, String word2) {
@@ -15,7 +16,7 @@ public class EditDistance {
 			for(int j=1;j<=len2;j++){
 				char ch1=word1.charAt(i-1), ch2=word2.charAt(j-1);
 				if(ch1==ch2)
-					arr[i][j]=Math.min(arr[i-1][j-1], Math.min(arr[i][j-1]+1, arr[i-1][j]+1));
+					arr[i][j]=arr[i-1][j-1];
 				else
 					arr[i][j]=Math.min(arr[i-1][j-1]+1, Math.min(arr[i][j-1]+1, arr[i-1][j]+1));
 			}
