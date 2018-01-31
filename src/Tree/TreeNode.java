@@ -5,5 +5,11 @@ public class TreeNode {
 	public TreeNode left;
 	public TreeNode right;
 	public TreeNode(int x) { val = x; }
+	
+	public TreeNode(int[] arr){
+		int len = arr.length;
+		if(len==0) return;
+		
+	}
 }
 
