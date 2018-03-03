@@ -9,24 +9,27 @@ public class BitwiseANDOfNumbersRange {
 		return result;
 	}
 
+	//11000  100  10
+	//11100  101  11
 	//Find the common prefix
 	public int rangeBitwiseAnd(int m, int n) {
 		if(m==n) return m;
-		int result = 1;
+		int result = 0;
 		while(m!=n) {
 			m >>= 1;
 			n >>= 1;
-			result <<= 1;
+			result++;
 		}
 		if(m==0) return 0;
-		result<<=1;
-		
-		return result;
+		for(int i=1; i<=result; i++) {
+			m<<=1;
+		}
+		return m;
 	}
 	public static void main(String[] args) {
 		BitwiseANDOfNumbersRange b = new BitwiseANDOfNumbersRange();
-		System.out.println(b.rangeBitwiseAnd(4,5));
-		System.out.println(2<<1);
+		System.out.println(b.rangeBitwiseAnd(5,7));
+		//System.out.println(2<<1);
 	}
 
 }
