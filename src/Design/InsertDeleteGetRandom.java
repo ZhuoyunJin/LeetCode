@@ -5,10 +5,11 @@ import java.util.*;
 public class InsertDeleteGetRandom {
 	Map<Integer, Integer> map;
 	List<Integer> list;
-	Random r = new Random();
+	Random r;
 	public InsertDeleteGetRandom() {
 		this.map = new HashMap<Integer, Integer>();
 		this.list = new ArrayList<Integer>();
+		this.r= new Random();
 	}
 
 	/** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
@@ -32,9 +33,9 @@ public class InsertDeleteGetRandom {
 			}else{
 				int lastIndex = list.size()-1;
 				int lastValue = list.get(lastIndex);
-				list.add(index, lastValue);
+				list.set(index, lastValue);
 				list.remove(lastIndex);
-				map.put(lastValue, lastIndex);
+				map.put(lastValue, index);
 				map.remove(val);
 			}
 			return true;
@@ -52,23 +53,22 @@ public class InsertDeleteGetRandom {
 	}
 	public static void main(String[] args) {
 		InsertDeleteGetRandom randomSet = new InsertDeleteGetRandom();
-		randomSet.insert(1);
-
-		// Returns false as 2 does not exist in the set.
+		randomSet.insert(3);
+		randomSet.insert(-2);
 		randomSet.remove(2);
 
-		// Inserts 2 to the set, returns true. Set now contains [1,2].
-		randomSet.insert(2);
+		randomSet.insert(1);
+		randomSet.insert(-3);
+		randomSet.insert(-2);
+		randomSet.remove(-2);
+		
+		randomSet.remove(3);
+		randomSet.insert(-1);
+		randomSet.remove(-3);
+		randomSet.insert(1);
+		//randomSet.getRandom();
 
-		// getRandom should return either 1 or 2 randomly.
-		randomSet.getRandom();
-
-		// Removes 1 from the set, returns true. Set now contains [2].
-		randomSet.remove(1);
-
-		// 2 was already in the set, so return false.
-		randomSet.insert(2);
-
+		
 		// Since 2 is the only number in the set, getRandom always return 2.
 		System.out.println(randomSet.getRandom());
 	}
