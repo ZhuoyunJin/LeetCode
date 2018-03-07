@@ -9,7 +9,7 @@ public class Q2 {
             return new int[]{-1};
         }
 
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        Map<Character, Integer> map = new HashMap<>();
         int[] result = new int[a.length];
         for (int i = 0; i < a.length; i++) {
             // Check if the two a[i].length() != b[i].length()
