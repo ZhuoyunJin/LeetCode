@@ -3,6 +3,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Given [1,3],[2,6],[8,10],[15,18],
+ * return [1,6],[8,10],[15,18].
+ */
 
 public class MergeIntervals {
 	public List<Interval> merge(List<Interval> intervals) {
@@ -32,4 +36,7 @@ public class MergeIntervals {
 		return result;
 	}
 
+	public List<Interval> merge2(List<Interval> intervals) {
+
+	}
 }

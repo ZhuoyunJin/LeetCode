@@ -33,4 +33,8 @@ public class ReverseNodeInKGroup {
 		headCopy.next=tail;
 		return tailCopy;
 	}
+
+	public ListNode reverseKGroup2(ListNode head, int k) {
+
+	}
 }

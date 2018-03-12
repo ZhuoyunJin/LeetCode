@@ -1,6 +1,6 @@
 package Utility;
 
-public class Utility {
+public class ArrayHelper {
 	public static <T>void printArray(T[] array) {
 		int i=0;
 		for(T element : array) {
