@@ -1,7 +1,5 @@
 package Tree;
 
-import Utility.Utility;
-
 public class UniqueBinarySearchTrees {
 	public int numTrees(int n) {
 		if(n <= 1) return n;
