@@ -68,7 +68,7 @@ public class MaxStack {
 		System.out.println(obj.peekMax());
 		System.out.println(obj.pop());
 		System.out.println(obj.top());
-		["MaxStack","push","push","push","top","popMax","top","peekMax","pop","top"]
+//		["MaxStack","push","push","push","top","popMax","top","peekMax","pop","top"]
 	}
 
 }

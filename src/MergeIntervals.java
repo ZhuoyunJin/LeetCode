@@ -37,6 +37,6 @@ public class MergeIntervals {
 	}
 
 	public List<Interval> merge2(List<Interval> intervals) {
-
+		return null;
 	}
 }
