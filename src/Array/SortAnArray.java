@@ -1,7 +1,6 @@
-package Google;
+package Array;
 
-public class QuickSort {
-
+public class SortAnArray {
     public int[] sortArray(int[] arr){
         if(arr.length <= 1) return arr;
 
@@ -46,7 +45,7 @@ public class QuickSort {
     public static void main(String[] args) {
 //        int[] arr = new int[]{-90, 86, 25, -56, 91, -13, 92, -69, 98, 95, 29};
         int[] arr = new int[]{0,-1,0,-1};
-        QuickSort quickSort = new QuickSort();
+        SortAnArray quickSort = new SortAnArray();
         quickSort.sortArray(arr);
         for(int i=0; i<arr.length; i++){
             System.out.print(arr[i] + "  ");
