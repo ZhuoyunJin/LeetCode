@@ -32,4 +32,16 @@ public class ArrayHelper {
 		}
 		System.out.println();
 	}
+
+	public static void printArray(int[][] array) {
+		for(int i=0;i<array.length;i++){
+            for(int j=0;j< array[0].length;j++){
+				if(j>0)
+					System.out.print(", ");
+                System.out.print(array[i][j]);
+            }
+            System.out.println();
+        }
+		System.out.println();
+	}
 }

@@ -1,5 +1,7 @@
 package Google.TopFrequency;
 
+import java.util.List;
+
 class ListNode {
     int val;
     ListNode next;
@@ -8,8 +10,43 @@ class ListNode {
 
 public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int sum = linkedListToNumber(l1) + linkedListToNumber(l2);
-        return numberToLinkedList(sum);
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+
+        ListNode retNode = new ListNode(0);
+        ListNode head = retNode;
+        int sum;
+        int carry = 0;
+        while(l1 != null && l2 != null ){
+            sum = l1.val + l2.val + carry;
+            head.next = new ListNode(sum%10);
+            carry = sum/10;
+            head = head.next;
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+
+        if (l2 != null) {
+            while(l2 != null){
+                sum = l2.val + carry;
+                head.next = new ListNode(sum%10);
+                carry = sum/10;
+                head = head.next;
+                l2 = l2.next;
+            }
+        } else if (l1 != null){
+            while(l1 != null){
+                sum = l1.val + carry;
+                head.next = new ListNode(sum%10);
+                carry = sum/10;
+                head = head.next;
+                l1 = l1.next;
+            }
+        }
+        if(carry > 0){
+            head.next = new ListNode(carry);
+        }
+        return retNode.next;
     }
 
     public ListNode numberToLinkedList(int num){
