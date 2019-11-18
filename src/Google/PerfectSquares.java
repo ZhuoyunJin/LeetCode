@@ -24,4 +24,45 @@ public class PerfectSquares {
 		}
 		return num[n];
 	}
+
+	//time exceeded
+	public int numSquares2(int n) {
+		if(n==1) return 1;
+		if(n==0) return 0;
+		int largestSquareRoot = 1;
+		while(Math.pow((largestSquareRoot+1), 2) <= n){
+			largestSquareRoot++;
+		}
+
+		int result = Integer.MAX_VALUE;
+		for(int i=1;i<=largestSquareRoot;i++){
+			int currentResult = numSquares(n-i*i)+1;
+			result = currentResult<result? currentResult:result;
+		}
+		return result;
+	}
+
+	public int numSquares3(int n) {
+		int[] dp = new int[n+1];
+		dp[1] = 1;
+		dp[0] = 0;
+		for(int i=2;i<=n;i++){
+			int largestSquareRoot = (int)Math.sqrt(i);
+			int result = Integer.MAX_VALUE;
+			for(int j=1;j<=largestSquareRoot;j++){
+				int currentResult = dp[n-j*j]+1;
+				result = currentResult<result? currentResult:result;
+			}
+			dp[i] = result;
+		}
+		for(int i: dp){
+			System.out.println(i);
+		}
+		return dp[n];
+	}
+
+	public static void main(String[] args){
+		PerfectSquares test = new PerfectSquares();
+		test.numSquares3(12);
+	}
 }
