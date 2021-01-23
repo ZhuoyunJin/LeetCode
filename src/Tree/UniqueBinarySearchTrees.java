@@ -2,26 +2,19 @@ package Tree;
 
 public class UniqueBinarySearchTrees {
 	public int numTrees(int n) {
-		if(n <= 1) return n;
-		int[] arr = new int[n];
-		for(int i=0;i<n;i++) {
-			arr[i] = i+1;
-		}
-		//Utility.printArray(arr);
-		return dfs(arr, 0, n-1);
-	}
-	public int dfs(int[] arr, int start, int end) {
-		//step out.
-		if(start>=end) return 1;
-		int result =0;
-		for(int i=start; i<=end;i++) {
-			result += dfs(arr, start, i-1) * dfs(arr, i+1, end);
+		if(n <= 1) return 1;
+		else if(n == 2) return 2;
+
+		int result = 0;
+		for(int i=1;i<=n;i++) {
+			result += numTrees(i-1)*numTrees(n-i);
 		}
 		return result;
 	}
+
 	public static void main(String[] args) {
 		UniqueBinarySearchTrees test = new UniqueBinarySearchTrees();
-		System.out.println(test.numTrees(3));
+		System.out.println(test.numTrees(2));
 	}
 
 }
